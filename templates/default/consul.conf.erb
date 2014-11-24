@@ -17,4 +17,4 @@ end script
 
 post-start exec initctl emit consul-up
 
-<%= if node['platform_version'] != '10.04' %>kill signal INT<% end %>
+<% if node['platform_version'] != '10.04' %>kill signal INT<% end %>
