@@ -17,25 +17,19 @@
 
 include_recipe 'ark::default'
 
-# Disabled until the final 0.5 release.
+install_arch = node['kernel']['machine'] =~ /x86_64/ ? 'amd64' : '386'
+install_version = [node['consul']['version'], node['os'], install_arch].join('_')
+install_checksum = node['consul']['checksums'].fetch(install_version)
 
-# install_arch = node['kernel']['machine'] =~ /x86_64/ ? 'amd64' : '386'
-# install_version = [node['consul']['version'], node['os'], install_arch].join('_')
-# install_checksum = node['consul']['checksums'].fetch(install_version)
-#
-# ark 'consul' do
-#   path node['consul']['install_dir']
-#   version node['consul']['version']
-#   checksum install_checksum
-#   url ::URI.join(node['consul']['base_url'], "#{install_version}.zip").to_s
-#   action :dump
-# end
+# Manual link has been added to deal with new version.
+# Will be removed once the cookbook is updated.
 
 ark 'consul' do
   path node['consul']['install_dir']
-  version '0.5rc1'
-  checksum '5bd26e3537cc452352a8e186cadab4fb0866450a26f929ef47cbdf4fe2dc2731'
+  version node['consul']['version']
+  checksum install_checksum
   url 'https://s3.amazonaws.com/devops-public/consul-0.5rc1-amd64.zip'
+  # url ::URI.join(node['consul']['base_url'], "#{install_version}.zip").to_s
   action :dump
 end
 

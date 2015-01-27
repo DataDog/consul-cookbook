@@ -39,7 +39,9 @@ default['consul']['checksums'] = {
   '0.4.1_linux_386'    => 'a496d6fd8ff5b460aea50be5d20fbd95cb5d30e9018259a0540273a17fae1c25',
   '0.4.1_linux_amd64'  => '2cf6e59edf348c3094c721eb77436e8c789afa2c35e6e3123a804edfeb1744ac',
   '0.4.1_windows_386'  => '61906f5d73a0d991dae5d75a25299f183670efa473cd155c715eefc98ce49cc8',
-  '0.4.1_web_ui'       => 'e02929ed44f5392cadd5513bdc60b7ab7363d1670d59e64d2422123229962fa0'
+  '0.4.1_web_ui'       => 'e02929ed44f5392cadd5513bdc60b7ab7363d1670d59e64d2422123229962fa0',
+  '0.5rc1_linux_amd64'  => '5bd26e3537cc452352a8e186cadab4fb0866450a26f929ef47cbdf4fe2dc2731',
+  '0.5rc1_web_ui'       => 'e02929ed44f5392cadd5513bdc60b7ab7363d1670d59e64d2422123229962fa0'
 }
 default['consul']['source_revision'] = 'master'
 
