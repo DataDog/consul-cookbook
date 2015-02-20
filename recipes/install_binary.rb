@@ -21,19 +21,16 @@ install_arch = node['kernel']['machine'] =~ /x86_64/ ? 'amd64' : '386'
 install_version = [node['consul']['version'], node['os'], install_arch].join('_')
 install_checksum = node['consul']['checksums'].fetch(install_version)
 
-# Manual link has been added to deal with new version.
-# Will be removed once the cookbook is updated.
-
 ark 'consul' do
   path node['consul']['install_dir']
   version node['consul']['version']
   checksum install_checksum
-  url 'https://s3.amazonaws.com/devops-public/consul-0.5rc1-amd64.zip'
-  # url ::URI.join(node['consul']['base_url'], "#{install_version}.zip").to_s
+  url ::URI.join(node['consul']['base_url'], "#{install_version}.zip").to_s
+  mode node['consul']['permissions']
   action :dump
 end
 
 file File.join(node['consul']['install_dir'], 'consul') do
-  mode '0755'
+  mode node['consul']['permissions']
   action :touch
 end

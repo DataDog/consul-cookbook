@@ -16,7 +16,7 @@
 #
 
 default['consul']['base_url'] = 'https://dl.bintray.com/mitchellh/consul/'
-default['consul']['version'] = '0.4.1'
+default['consul']['version'] = '0.5.0'
 default['consul']['install_method'] = 'binary'
 default['consul']['install_dir'] = '/usr/local/bin'
 default['consul']['checksums'] = {
@@ -40,10 +40,11 @@ default['consul']['checksums'] = {
   '0.4.1_linux_amd64'  => '2cf6e59edf348c3094c721eb77436e8c789afa2c35e6e3123a804edfeb1744ac',
   '0.4.1_windows_386'  => '61906f5d73a0d991dae5d75a25299f183670efa473cd155c715eefc98ce49cc8',
   '0.4.1_web_ui'       => 'e02929ed44f5392cadd5513bdc60b7ab7363d1670d59e64d2422123229962fa0',
-  '0.5rc1_linux_amd64'  => '5bd26e3537cc452352a8e186cadab4fb0866450a26f929ef47cbdf4fe2dc2731',
-  '0.5rc1_web_ui'       => 'e02929ed44f5392cadd5513bdc60b7ab7363d1670d59e64d2422123229962fa0'
+  '0.5.0_linux_amd64'  => '161f2a8803e31550bd92a00e95a3a517aa949714c19d3124c46e56cfdc97b088',
+  '0.5.0_web_ui'       => '0081d08be9c0b1172939e92af5a7cf9ba4f90e54fae24a353299503b24bb8be9'
 }
 default['consul']['source_revision'] = 'master'
+default['consul']['permissions'] = 00750
 
 # Service attributes
 default['consul']['service_mode'] = 'bootstrap'
