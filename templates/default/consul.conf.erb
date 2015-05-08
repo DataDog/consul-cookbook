@@ -11,7 +11,7 @@ script
   fi
   export GOMAXPROCS=${GOMAXPROCS}
   CMD="<%= @consul_binary %> agent -config-dir <%= @config_dir %>"
-  LOGFILE="/var/log/consul.log"
+  LOGFILE="<%= @consul_logfile %>"
   exec $CMD >> "$LOGFILE"
 end script
 

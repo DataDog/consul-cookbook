@@ -165,6 +165,7 @@ when 'init'
     variables(
       consul_binary: "#{node['consul']['install_dir']}/consul",
       config_dir: node['consul']['config_dir'],
+      consul_logfile: node['consul']['logfile']
     )
     notifies :restart, 'service[consul]', :immediately
   end
